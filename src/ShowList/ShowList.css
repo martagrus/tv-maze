@@ -6,6 +6,8 @@
     margin-bottom: 2%;
 }
 
+.show-search h1 {color: grey}
+
 .show-search input { width: 33% }
 
 .show-list {
@@ -26,5 +28,16 @@
 
 .card-text {
     height: 100px;
+}
+
+.btn {
+    background: grey;
+    border: 2px solid pink;
+}
+
+.btn-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 

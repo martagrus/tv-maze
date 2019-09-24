@@ -42,7 +42,7 @@ displayShows() {
           <div className="card-body">
             <h5 className="card-title">{show.name}</h5>
             <p className="card-text">{show.desc}</p>
-            <Link className="btn btn-primary" to={`show/${show.id}`}>Read More</Link>
+            <Link className="btn btn-list" to={`show/${show.id}`}>Read More</Link>
           </div>
         </div>
       ))
@@ -58,7 +58,7 @@ setTitleFilter(ev) {
   const {shows} = this.state;
 
   let showsToDisplay = shows.filter(show => {
-    return show.name.toLowerCase().startsWith(ev.target.value.toLowerCase)
+    return show.name.toLowerCase().startsWith(ev.target.value.toLowerCase())
   })
 
   this.setState({showsToDisplay})
@@ -66,9 +66,9 @@ setTitleFilter(ev) {
 
   render() {
     return (
-      <div className='flex-container'>
+      <div>
         <div className='show-search'>
-          <h4>Find your favourite show</h4>
+          <h1>Find your favourite show</h1>
           <input type='text' placeholder='Type the title here' onKeyUp={this.setTitleFilter}></input>
         </div>
         <section className='show-list'>
