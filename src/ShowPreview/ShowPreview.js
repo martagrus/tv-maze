@@ -15,6 +15,7 @@ export class ShowPreview extends React.Component {
       }
 
       this.displayShowPreview = this.displayShowPreview.bind(this);
+      this.displayGenres = this.displayGenres.bind(this);
     }
   
     componentDidMount() {
@@ -30,9 +31,22 @@ export class ShowPreview extends React.Component {
         )
     }
 
+    displayGenres() {
+      let genresList = [];
+
+      genresList = this.state.selectedShow.genres.map((genre, i) => {
+        if (i < this.state.selectedShow.genres.length - 1) {
+          return genre + ', ';
+        } else {
+          return genre;
+        }
+      })
+
+      return genresList;
+    }
+
     displayMainInfo(selectedShow) {
       let date = new Date(selectedShow.premiered);
-
 
       return (
         <main className='show-desc'> 
@@ -43,7 +57,7 @@ export class ShowPreview extends React.Component {
             </div>
           </div>
           <h2>Premiere date: {moment(date).format("DD MMM YYYY")}</h2>
-          <h2>Genre: {selectedShow.genres[0]}</h2>
+          <h2>Genres: {this.displayGenres()}</h2>
           <p className='show-summary-long'>{selectedShow.summary.replace(/(<([^>]+)>)/ig, '')}</p>
           <a className='btn' target='_blank' href={`https://www.imdb.com/title/${selectedShow.externals.imdb}`}>Read more on IMDB</a>
         </main>
